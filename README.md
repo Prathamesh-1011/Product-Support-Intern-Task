@@ -21,22 +21,6 @@ python main.py serve             # FastAPI on http://127.0.0.1:8000
 python main.py ui                # Streamlit demo for TAMs
 ```
 
-## Screenshots
-
-Add your image files later and keep these paths unchanged, or replace them with your preferred directory.
-
-### Ticket Triage
-![Ticket triage screenshot](assets/screenshots/triage.png)
-
-### TAM Brief
-![TAM brief screenshot](assets/screenshots/tam.png)
-
-### API Server
-![API server screenshot](assets/screenshots/serve.png)
-
-### Streamlit UI
-![Streamlit UI screenshot](assets/screenshots/ui.png)
-
 ## Repository Structure
 
 ```
