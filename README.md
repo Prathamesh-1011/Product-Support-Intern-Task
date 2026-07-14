@@ -81,9 +81,10 @@ python main.py triage \
 | `kb_match` | Matched knowledge-base doc if a known pattern is found |
 | `recommended_team` | tier-1-support, tier-2-engineering, integrations-team, etc. |
 | `draft_response` | Ready-to-send first response for the agent |
-
-![Ticket triage screenshot](photos/triage1.png)
-![Ticket triage screenshot](photos/triage2.png)
+<p align="center">
+  <img src="photos/triage1.png" width="49%" />
+  <img src="photos/triage2.png" width="49%" />
+</p>
 
 ### API
 
@@ -97,9 +98,10 @@ curl -X POST http://127.0.0.1:8000/triage \
 Streaming draft response: `POST /triage/stream` (SSE)
 
 ---
-
-![API](photos/serve1.png)
-![API](photos/serve2.png)
+<p align="center">
+  <img src="photos/serve1.png" width="49%" />
+  <img src="photos/serve2.png" width="49%" />
+</p>
 
 
 ## Task 2 · TAM Account Health Summariser
@@ -121,9 +123,10 @@ Produces a 3-section brief:
 Determinism: `temperature=0`, fixed `seed`, and a `content_hash` for verification.
 
 Streaming executive summary: `GET /tam/{account_id}/stream`
-
-![TAM Account Health Summariser](photos/tam1.png)
-![TAM Account Health Summariser](photos/tam2.png)
+<p align="center">
+  <img src="photos/tam1.png" width="49%" />
+  <img src="photos/tam2.png" width="49%" />
+</p>
 
 ---
 
