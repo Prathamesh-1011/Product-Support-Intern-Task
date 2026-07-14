@@ -1,0 +1,156 @@
+{
+  "timestamp": "2026-07-14T19:13:37.695234+00:00",
+  "offline_mode": false,
+  "summary": {
+    "total_cases": 12,
+    "passed_cases": 12,
+    "pass_rate": 1.0,
+    "average_score": 1.0
+  },
+  "results": [
+    {
+      "id": "triage_p1_pipeline_outage",
+      "task": "triage",
+      "description": "Critical DataBridge pipeline timeout affecting production users",
+      "adversarial": false,
+      "passed": true,
+      "rule_score": 1.0,
+      "llm_judge_score": null,
+      "combined_score": 1.0,
+      "failures": [],
+      "judge_reasoning": null
+    },
+    {
+      "id": "triage_billing_seats",
+      "task": "triage",
+      "description": "Billing inquiry about seat count on invoice",
+      "adversarial": false,
+      "passed": true,
+      "rule_score": 1.0,
+      "llm_judge_score": null,
+      "combined_score": 1.0,
+      "failures": [],
+      "judge_reasoning": null
+    },
+    {
+      "id": "triage_sso_auth",
+      "task": "triage",
+      "description": "SSO authentication failure with known error code",
+      "adversarial": false,
+      "passed": true,
+      "rule_score": 1.0,
+      "llm_judge_score": null,
+      "combined_score": 1.0,
+      "failures": [],
+      "judge_reasoning": null
+    },
+    {
+      "id": "triage_feature_request",
+      "task": "triage",
+      "description": "Low-urgency feature request for bulk operations",
+      "adversarial": false,
+      "passed": true,
+      "rule_score": 1.0,
+      "llm_judge_score": null,
+      "combined_score": 1.0,
+      "failures": [],
+      "judge_reasoning": null
+    },
+    {
+      "id": "triage_onboarding",
+      "task": "triage",
+      "description": "New team onboarding request",
+      "adversarial": false,
+      "passed": true,
+      "rule_score": 1.0,
+      "llm_judge_score": null,
+      "combined_score": 1.0,
+      "failures": [],
+      "judge_reasoning": null
+    },
+    {
+      "id": "triage_adversarial_ambiguous",
+      "task": "triage",
+      "description": "Adversarial: vague ticket mixing billing complaint with performance issue",
+      "adversarial": true,
+      "passed": true,
+      "rule_score": 1.0,
+      "llm_judge_score": null,
+      "combined_score": 1.0,
+      "failures": [],
+      "judge_reasoning": null
+    },
+    {
+      "id": "tam_at_risk_account",
+      "task": "tam",
+      "description": "At-risk account with declining usage and escalation notes",
+      "adversarial": false,
+      "passed": true,
+      "rule_score": 1.0,
+      "llm_judge_score": null,
+      "combined_score": 1.0,
+      "failures": [],
+      "judge_reasoning": null
+    },
+    {
+      "id": "tam_healthy_account",
+      "task": "tam",
+      "description": "Healthy account with increasing usage",
+      "adversarial": false,
+      "passed": true,
+      "rule_score": 1.0,
+      "llm_judge_score": null,
+      "combined_score": 1.0,
+      "failures": [],
+      "judge_reasoning": null
+    },
+    {
+      "id": "tam_churning_account",
+      "task": "tam",
+      "description": "Churning account with competitor evaluation signals",
+      "adversarial": false,
+      "passed": true,
+      "rule_score": 1.0,
+      "llm_judge_score": null,
+      "combined_score": 1.0,
+      "failures": [],
+      "judge_reasoning": null
+    },
+    {
+      "id": "tam_high_p1_load",
+      "task": "tam",
+      "description": "Account with P1 ticket history",
+      "adversarial": false,
+      "passed": true,
+      "rule_score": 1.0,
+      "llm_judge_score": null,
+      "combined_score": 1.0,
+      "failures": [],
+      "judge_reasoning": null
+    },
+    {
+      "id": "tam_renewal_focus",
+      "task": "tam",
+      "description": "Enterprise account approaching renewal",
+      "adversarial": false,
+      "passed": true,
+      "rule_score": 1.0,
+      "llm_judge_score": null,
+      "combined_score": 1.0,
+      "failures": [],
+      "judge_reasoning": null
+    },
+    {
+      "id": "tam_adversarial_missing_account",
+      "task": "tam",
+      "description": "Adversarial: account ID not in accounts.json",
+      "adversarial": true,
+      "passed": true,
+      "rule_score": 1.0,
+      "llm_judge_score": null,
+      "combined_score": 1.0,
+      "failures": [],
+      "judge_reasoning": null
+    }
+  ]
+}
