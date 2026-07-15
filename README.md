@@ -71,10 +71,13 @@ python main.py triage \
 | `kb_match` | Matched knowledge-base doc if a known pattern is found |
 | `recommended_team` | tier-1-support, tier-2-engineering, integrations-team, etc. |
 | `draft_response` | Ready-to-send first response for the agent |
-<p align="center">
-  <img src="photos/triage1.png" width="49%" />
-  <img src="photos/triage2.png" width="49%" />
-</p>
+Below is a screenshot of the Streamlit user interface demonstrating the Task 1 ticket triage in action. In this example, the user submits a feature request for AnalyticsHub Data Sources regarding bulk run batch import. The AI classifies it as a Feature Request under P3 urgency, routing it to the `tier-2-engineering` team, providing detailed reasoning, and drafting a polite first response thanking the customer.
+
+![Ticket Triage UI Demo](photos/triage1.png)
+
+The interface also displays the raw structured JSON payload output by the LLM, containing all schema fields (including product area, category, urgency, reasoning, KB match status, recommended team, draft response, and prompt version reference).
+
+![Ticket Triage Raw JSON Output](photos/triage2.png)
 
 ### API
 
@@ -88,10 +91,17 @@ curl -X POST http://127.0.0.1:8000/triage \
 Streaming draft response: `POST /triage/stream` (SSE)
 
 ---
-<p align="center">
-  <img src="photos/serve1.png" width="49%" />
-  <img src="photos/serve2.png" width="49%" />
-</p>
+Below is the Swagger UI (OpenAPI 3.1 specification docs) generated automatically by FastAPI, showing the five endpoints exposed by the service for health checks, ticket triage (standard and SSE streaming), and TAM brief generation (standard and SSE streaming).
+
+![API Swagger UI Endpoint Documentation](photos/serve1.png)
+
+The interactive API docs allow teams to test endpoints directly. Here, the `GET /tam/{account_id}` endpoint is being invoked with `ACC-1899` as the path parameter.
+
+![API Swagger Interface Parameter Input](photos/serve2.png)
+
+The API successfully returns the structured `TAMBriefOutput` JSON payload for the account, including the executive summary, categorized open risks, and recommended talking points.
+
+![API Swagger Response Payload](photos/serve3.png)
 
 
 ## Task 2 · TAM Account Health Summariser
@@ -113,10 +123,13 @@ Produces a 3-section brief:
 Determinism: `temperature=0`, fixed `seed`, and a `content_hash` for verification.
 
 Streaming executive summary: `GET /tam/{account_id}/stream`
-<p align="center">
-  <img src="photos/tam1.png" width="49%" />
-  <img src="photos/tam2.png" width="49%" />
-</p>
+Below is a screenshot of the TAM Account Health Brief UI in Streamlit. For account ID `ACC-1899` (Crestline Consulting), the summarizer retrieves the account data, notes, and zero tickets in the last 90 days. It then drafts a concise executive summary and highlights categorized open risks (high-severity churn risk due to vendor evaluation and medium-severity escalations).
+
+![TAM Account Health Brief UI Summary](photos/tam1.png)
+
+The lower section of the TAM Brief UI displays flagged tickets (if any) and a numbered checklist of recommended QBR discussion points customized for the client's current situation (e.g. addressing integration reliability and response times).
+
+![TAM QBR Talking Points and Verification](photos/tam2.png)
 
 ---
 
@@ -175,7 +188,9 @@ At ~5,000 tickets/day, **the first bottleneck is synchronous LLM triage latency 
 
 ---
 
-![Streamlit UI](photos/ui.png)
+Below is the clean, high-performance Streamlit dashboard. It features sidebar links and quick-start tips, and divides the triage interface and TAM account summary engine into two easy-to-use tabbed views for support tier agents and TAMs.
+
+![Streamlit Empty UI State](photos/ui.png)
 
 ## Environment Variables
 
