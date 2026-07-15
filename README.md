@@ -46,7 +46,6 @@ python main.py ui                # Streamlit demo for TAMs
 └── PROMPTS.md              # Prompt version changelog
 ```
 
----
 
 ## Task 1 · Intelligent Ticket Triage
 
@@ -71,6 +70,8 @@ python main.py triage \
 | `kb_match` | Matched knowledge-base doc if a known pattern is found |
 | `recommended_team` | tier-1-support, tier-2-engineering, integrations-team, etc. |
 | `draft_response` | Ready-to-send first response for the agent |
+
+
 Below is a screenshot of the Streamlit user interface demonstrating the Task 1 ticket triage in action. In this example, the user submits a feature request for AnalyticsHub Data Sources regarding bulk run batch import. The AI classifies it as a Feature Request under P3 urgency, routing it to the `tier-2-engineering` team, providing detailed reasoning, and drafting a polite first response thanking the customer.
 
 ![Ticket Triage UI Demo](photos/triage1.png)
@@ -90,19 +91,10 @@ curl -X POST http://127.0.0.1:8000/triage \
 
 Streaming draft response: `POST /triage/stream` (SSE)
 
----
+
 Below is the Swagger UI (OpenAPI 3.1 specification docs) generated automatically by FastAPI, showing the five endpoints exposed by the service for health checks, ticket triage (standard and SSE streaming), and TAM brief generation (standard and SSE streaming).
 
 ![API Swagger UI Endpoint Documentation](photos/serve1.png)
-
-The interactive API docs allow teams to test endpoints directly. Here, the `GET /tam/{account_id}` endpoint is being invoked with `ACC-1899` as the path parameter.
-
-![API Swagger Interface Parameter Input](photos/serve2.png)
-
-The API successfully returns the structured `TAMBriefOutput` JSON payload for the account, including the executive summary, categorized open risks, and recommended talking points.
-
-![API Swagger Response Payload](photos/serve3.png)
-
 
 ## Task 2 · TAM Account Health Summariser
 
@@ -131,7 +123,14 @@ The lower section of the TAM Brief UI displays flagged tickets (if any) and a nu
 
 ![TAM QBR Talking Points and Verification](photos/tam2.png)
 
----
+The interactive API docs allow teams to test endpoints directly. Here, the `GET /tam/{account_id}` endpoint is being invoked with `ACC-1899` as the path parameter.
+
+![API Swagger Interface Parameter Input](photos/serve2.png)
+
+The API successfully returns the structured `TAMBriefOutput` JSON payload for the account, including the executive summary, categorized open risks, and recommended talking points.
+
+![API Swagger Response Payload](photos/serve3.png)
+
 
 ## Task 3 · Evaluation Harness
 
@@ -148,7 +147,6 @@ Each test case has rule-based acceptance criteria (field presence, enum values, 
 - `triage_adversarial_ambiguous` — vague mixed billing/performance ticket
 - `tam_adversarial_missing_account` — account ID not in `accounts.json`
 
----
 
 ## Task 4 · Design Note
 
@@ -175,7 +173,6 @@ Ticket and account data may contain PII (contact names, company details). This d
 
 At ~5,000 tickets/day, **the first bottleneck is synchronous LLM triage latency and cost**, not the Python pipeline itself. BM25 indexing is in-memory and rebuilds in <1s for the current KB; ticket JSON loading would move to a database with indexed `account_id` and `created_at`. The eval harness would shift to sampled nightly runs plus pre-merge offline checks. TAM brief generation should be **batch/async** (queue per account before QBR season) rather than on-demand for all 500 accounts. Horizontal scaling: stateless FastAPI workers behind a load balancer; Redis cache for triage results keyed by ticket content hash (dedupe repeat submissions).
 
----
 
 ## Bonus Features
 
@@ -186,7 +183,6 @@ At ~5,000 tickets/day, **the first bottleneck is synchronous LLM triage latency 
 | CI eval on commit | `.github/workflows/eval.yml` |
 | Prompt versioning | `src/prompts/registry.py`, `PROMPTS.md` |
 
----
 
 Below is the clean, high-performance Streamlit dashboard. It features sidebar links and quick-start tips, and divides the triage interface and TAM account summary engine into two easy-to-use tabbed views for support tier agents and TAMs.
 
@@ -202,9 +198,3 @@ See `.env.example`:
 | `GROQ_MODEL` | No | Default: `llama-3.3-70b-versatile` |
 | `GROQ_SEED` | No | Default: `42` |
 | `EVAL_OFFLINE_MODE` | No | Skip LLM in eval |
-
----
-
-## License
-
-Mock data and starter repo provided for interview purposes.
