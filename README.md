@@ -139,7 +139,7 @@ python main.py eval           # 12 test cases (6 triage + 6 TAM, incl. adversari
 python main.py eval --offline # 4 structural checks, no API key needed
 ```
 
-Reports: `eval_report.json` and `eval_report.md`
+Reports: [eval_report.json](eval_report.json) and [eval_report.md](eval_report.md)
 
 Each test case has rule-based acceptance criteria (field presence, enum values, quote validation). Pass threshold: combined score ≥ 0.75 with rule score ≥ 0.6.
 
@@ -190,7 +190,7 @@ Below is the clean, high-performance Streamlit dashboard. It features sidebar li
 
 ## Environment Variables
 
-See `.env.example`:
+See [.env.example](.env.example):
 
 | Variable | Required | Description |
 |----------|----------|-------------|
