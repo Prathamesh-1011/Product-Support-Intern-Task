@@ -2,6 +2,12 @@
 
 Production-grade AI tooling for **Technical Support** (ticket triage) and **Technical Account Management** (account health briefs). Built for the US Delivery Internship technical task round using the provided mock dataset exclusively.
 
+## 🎥 Walkthrough Video
+
+A detailed video walkthrough of the codebase, a live demo of both Task 1 (triage) and Task 2 (TAM health briefs), and task evaluations is included below:
+
+[**▶️ Play Video Walkthrough (photos/intern_task_walkthrough.mp4)**](photos/intern_task_walkthrough.mp4)
+
 ## Quick Start
 
 ```bash
